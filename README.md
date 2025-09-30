@@ -25,7 +25,7 @@ Green Update Challenge
 
 **Solution:**
 We designed Gamified Green OTA using Eclipse Symphony + Eclipse Ankaios:
-- Symphony builds delta update bundles (HPC container layers + ECU firmware diffs).
+- Symphony builds update bundles (HPC container layers + ECU firmware diffs).
 - Ankaios orchestrates updates in-vehicle → schedules them during charging/low-carbon energy windows.
 - Updates are safer with rollback (via Muto) and more efficient with peer-to-peer sharing (Zenoh).
 - End-users (drivers/fleet operators) see gamified green feedback: CO₂ saved, badges, and achievements (e.g., Eco-Champion, Carbon Saver).
