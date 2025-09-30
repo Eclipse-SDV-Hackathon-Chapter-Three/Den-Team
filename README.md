@@ -17,53 +17,46 @@ Den-Team
 Update Possible Challenge
 
 ## Core Idea
-Our Solution – Green OTA with User Choice
-We extend OTA with a Green Mode, giving drivers/fleet operators multiple eco-friendly update options, orchestrated by Eclipse Symphony + Ankaios + uProtocol/Zenoh.
-1. Two OTA Modes
-* Normal OTA → Immediate update, default option.
-* Green OTA → User chooses eco-friendly update strategy.
-2. Green OTA Options
-Update While Charging :zap:
-* Updates are scheduled only when EV is charging → zero range loss, often on cleaner grid energy.
-* P2P Update with Zenoh/uProtocol :link:
-* Vehicle downloads update from nearest charging station or another vehicle → reduces cloud load and cost.
-* Wired Workshop Update :hammer_and_wrench:
-* Car detects nearest workshop or service depot → update via local wired link → faster + bandwidth-efficient.
-* (Extensible) Other options like “Update during low-CO₂ grid hours” or “Update when parked at depot.”
-* Delta update → reduce data to be transferred 
-3. Gamified Experience :video_game:
-* Each green update gives driver points, badges, and eco-feedback:
-  - Eco-Champion → Updates done while charging.
-  - Carbon Saver → Updates done during low-carbon hours.
-  - fleet Hero → Updates received via P2P sharing.
-* Dashboard/App shows CO₂ saved, energy conserved, and achievements unlocked.
+### Our Solution
+SafeGuard: Your OTA Protector
+"Safe, Trusted, and Transparent OTA Updates"
 
-  
-Impact
-* Flexibility: Drivers/fleets choose update method → less disruption.
-* Sustainability: Cloud offloaded via P2P/workshop updates; charging-time updates cut emissions.
-* Engagement: Gamified feedback makes users care about eco-friendly updates.
-* Openness: Built on Eclipse stack (Symphony, Ankaios, Zenoh, uProtocol) → vendor-neutral, scalable.
+### Problem/Story
+OTA updates are essential for vehicle ECUs (battery, motor, HPC). However:
+* Blind updates risk vehicle downtime
+* Interdependent ECUs may fail if updated in the wrong order
+* Drivers may experience disruptions
+* OEMs lack a structured history of all updates per vehicle
 
-<img width="1972" height="1554" alt="Brainstorming et idéation" src="https://github.com/user-attachments/assets/c2462cf4-6699-44fa-9a9b-698f77489490" />
+### SafeGuard Solution
+1. Driver Approval -  Updates only occur with driver consent via dashboard/app, avoiding disruption.
+2. Dependency Check - ECU updates respect correct order (HPC → Battery → Motor ECU), preventing failures.
+3. Vehicle State Condition - Updates only execute if vehicle is stationary, battery safe, and critical ECUs idle.
+4. Update Tracker - Tracks all updates over the lifetime of a vehicle. Provides OEMs with historical data for predictive maintenance, analytics, and future development.
 
+Business Value:
+* Safety & Reliability: Prevents failed updates and protects vehicle ECUs
+* Driver Trust: Approvals + state checks → drivers confident in updates
+* Operational Insight: Tracker enables data-driven decisions for OEMs
+* Cost Efficiency: Reduces downtime and costly rollbacks
+* Future Development: Historical update data helps OEMs design better features and predictive maintenance
 
 # 2. How Do You Work
 ## Development Process
-Iterative development with short sprints.
-Focused first on getting Symphony :left_right_arrow: Ankaios pipeline working.
-Added gamification UI later for end-user value.
+* Agile, iterative sprints: prototype → OTA orchestration → testing in simulator.
+* Focus on Driver Approval, Dependency Check, Vehicle State Condition, and Update Tracker integration.
   
 ## Planning & Tracking
 - Used GitHub Projects + Issues for task tracking.
 
 ## Quality Assurance
-How do you ensure quality (e.g., testing, documentation, code reviews)?
-Unit testing for update orchestration logic.
+- Unit testing for update orchestration logic.
+- Code reviews of all PRs
+- Automated unit and integration tests in simulated vehicles.
 
 ## Communication
-Slack + GitHub for async communication.
+- Slack + GitHub for async communication.
 
 ## Decision Making
-Collaborative → quick discussions in team calls.
-Final technical decisions made by consensus, prioritizing hackathon deadlines.
+- Collaborative → quick discussions in team calls.
+- Final technical decisions made by consensus, prioritizing hackathon deadlines.
