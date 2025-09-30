@@ -17,18 +17,35 @@ Den-Team
 Update Possible Challenge
 
 ## Core Idea
-What is your rough solution idea?
-Green Update Challenge
+Our Solution – Green OTA with User Choice
+We extend OTA with a Green Mode, giving drivers/fleet operators multiple eco-friendly update options, orchestrated by Eclipse Symphony + Ankaios + uProtocol/Zenoh.
+1. Two OTA Modes
+* Normal OTA → Immediate update, default option.
+* Green OTA → User chooses eco-friendly update strategy.
+2. Green OTA Options
+Update While Charging :zap:
+* Updates are scheduled only when EV is charging → zero range loss, often on cleaner grid energy.
+* P2P Update with Zenoh/uProtocol :link:
+* Vehicle downloads update from nearest charging station or another vehicle → reduces cloud load and cost.
+* Wired Workshop Update :hammer_and_wrench:
+* Car detects nearest workshop or service depot → update via local wired link → faster + bandwidth-efficient.
+* (Extensible) Other options like “Update during low-CO₂ grid hours” or “Update when parked at depot.”
+* Delta update → reduce data to be transferred 
+3. Gamified Experience :video_game:
+* Each green update gives driver points, badges, and eco-feedback:
+  - Eco-Champion → Updates done while charging.
+  - Carbon Saver → Updates done during low-carbon hours.
+  - fleet Hero → Updates received via P2P sharing.
+* Dashboard/App shows CO₂ saved, energy conserved, and achievements unlocked.
 
-**Problem:**
- OTA updates today are wasteful (full firmware flashes, heavy downloads), fragmented (HPC vs ECU mismatch), and invisible to the end-user. Drivers and fleet operators don’t see the environmental or performance value of updates.
+  
+Impact
+* Flexibility: Drivers/fleets choose update method → less disruption.
+* Sustainability: Cloud offloaded via P2P/workshop updates; charging-time updates cut emissions.
+* Engagement: Gamified feedback makes users care about eco-friendly updates.
+* Openness: Built on Eclipse stack (Symphony, Ankaios, Zenoh, uProtocol) → vendor-neutral, scalable.
 
-**Solution:**
-We designed Gamified Green OTA using Eclipse Symphony + Eclipse Ankaios:
-- Symphony builds update bundles (HPC container layers + ECU firmware diffs).
-- Ankaios orchestrates updates in-vehicle → schedules them during charging/low-carbon energy windows.
-- Updates are safer with rollback (via Muto) and more efficient with peer-to-peer sharing (Zenoh).
-- End-users (drivers/fleet operators) see gamified green feedback: CO₂ saved, badges, and achievements (e.g., Eco-Champion, Carbon Saver).
+<img width="1972" height="1554" alt="Brainstorming et idéation" src="https://github.com/user-attachments/assets/c2462cf4-6699-44fa-9a9b-698f77489490" />
 
 
 # 2. How Do You Work
