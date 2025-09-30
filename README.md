@@ -4,14 +4,14 @@
 Den-Team
 
 ## Team Members
-| Name | GitHub Handle | Roles |
-|------------------|----------|----------|
-| Rihab Saidi      |  |          |
-| Priyanka Mohanta |  |          |
-| Ayane Makiuchi   |  |          |
-| Mandar kharde    |  |          |
-| satoshi kaneko   |  |          |
-Name	GitHub Handle	Role(s)
+| Name             | GitHub Handle | Roles |
+|------------------|----------|---------------------------------------------|
+| Rihab Saidi      | RiSaidi  | Cloud Orchestration, Backend                |
+| Priyanka Mohanta | primohanta | In-Vehicle Orchestration, Testing         | 
+| Ayane Makiuchi   | upi5         | UX / Dashboard Gamification|
+| Mandar kharde    |  mkhardedenso               | Networking & uProtocol Setup|
+| satoshi kaneko   | satoshi58                   |  HPC/ECU Integration|
+
 
 ## Challenge
 Update Possible Challenge
@@ -20,21 +20,33 @@ Update Possible Challenge
 What is your rough solution idea?
 Green Update Challenge
 
+**Problem:**
+ OTA updates today are wasteful (full firmware flashes, heavy downloads), fragmented (HPC vs ECU mismatch), and invisible to the end-user. Drivers and fleet operators don’t see the environmental or performance value of updates.
 
-Sketch something that helps understand e.g. mermaid chart
+**Solution:**
+We designed Gamified Green OTA using Eclipse Symphony + Eclipse Ankaios:
+- Symphony builds delta update bundles (HPC container layers + ECU firmware diffs).
+- Ankaios orchestrates updates in-vehicle → schedules them during charging/low-carbon energy windows.
+- Updates are safer with rollback (via Muto) and more efficient with peer-to-peer sharing (Zenoh).
+- End-users (drivers/fleet operators) see gamified green feedback: CO₂ saved, badges, and achievements (e.g., Eco-Champion, Carbon Saver).
+
 
 # 2. How Do You Work
 ## Development Process
-Brief overview of your development process.
-
+Iterative development with short sprints.
+Focused first on getting Symphony :left_right_arrow: Ankaios pipeline working.
+Added gamification UI later for end-user value.
+  
 ## Planning & Tracking
-How do you plan and track progress?
+- Used GitHub Projects + Issues for task tracking.
 
 ## Quality Assurance
 How do you ensure quality (e.g., testing, documentation, code reviews)?
+Unit testing for update orchestration logic.
 
 ## Communication
-How does your team communicate?
+Slack + GitHub for async communication.
 
 ## Decision Making
-How are decisions made in your team?
+Collaborative → quick discussions in team calls.
+Final technical decisions made by consensus, prioritizing hackathon deadlines.
