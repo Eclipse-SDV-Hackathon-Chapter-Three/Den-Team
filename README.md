@@ -14,32 +14,32 @@ Den-Team
 
 
 ## Challenge
-Update Possible Challenge
-
+**Update Possible Challenge**
+---
 ## Core Idea
-### Our Solution
-SafeGuard: Your OTA Protector
-"Safe, Trusted, and Transparent OTA Updates"
+### **Safeguard – The Trust & Compliance Layer for Eclipse SDV OTA**
+Modern vehicles are rolling software platforms. The **Eclipse SDV stack** (Symphony + Ankaios + Zenoh + Muto) already enables containerized, modular OTA updates. But **real-world deployments require more than orchestration** — they need **trust, compliance, and transparency.**
+Current gaps:
+- Symphony + Ankaios can orchestrate OTA, but…
+  - No **driver consent flow**.
+  - No **dependency enforcement** across ECUs.
+  - No **vehicle state awareness** (safe update conditions).
+  - No **traceable audit history** for regulations like **UN R155/R156**.
+**Safeguard** is our OSS enhancement that plugs into the Eclipse SDV stack and makes it **enterprise/OEM-ready.**
+With Safeguard, OTA isn’t just about pushing updates — it’s about ensuring **trust, compliance, and laying the foundation for tomorrow’s intelligence.**
+### Key Features of Safeguard
+- **Driver Approval** – Consent workflow via dashboard/app → driver-in-the-loop for safety.
+- **Dependency Check** – Update order validated across ECUs (HPC → Battery → Motor ECU).
+- **Vehicle State Condition** – Only execute if vehicle is stationary, battery safe, critical ECUs idle.
+- **Update Tracker** – Lifetime history of OTA actions → regulatory compliance + OEM insights.
+- **AI-Ready Data** – Tracker produces structured logs → future AI for predictive updates & anomaly detection.
+> With Safeguard, Eclipse SDV’s OTA becomes **not just functional, but trusted, compliant, and competitive with closed-source OEM stacks.**
 
-### Problem/Story
-OTA updates are essential for vehicle ECUs (battery, motor, HPC). However:
-* Blind updates risk vehicle downtime
-* Interdependent ECUs may fail if updated in the wrong order
-* Drivers may experience disruptions
-* OEMs lack a structured history of all updates per vehicle
-
-### SafeGuard Solution
-1. Driver Approval -  Updates only occur with driver consent via dashboard/app, avoiding disruption.
-2. Dependency Check - ECU updates respect correct order (HPC → Battery → Motor ECU), preventing failures.
-3. Vehicle State Condition - Updates only execute if vehicle is stationary, battery safe, and critical ECUs idle.
-4. Update Tracker - Tracks all updates over the lifetime of a vehicle. Provides OEMs with historical data for predictive maintenance, analytics, and future development.
-
-Business Value:
-* Safety & Reliability: Prevents failed updates and protects vehicle ECUs
-* Driver Trust: Approvals + state checks → drivers confident in updates
-* Operational Insight: Tracker enables data-driven decisions for OEMs
-* Cost Efficiency: Reduces downtime and costly rollbacks
-* Future Development: Historical update data helps OEMs design better features and predictive maintenance
+### Business Value & Differentiation
+- **Regulation-ready**: Traceability ensures easier compliance with UN R155 (cybersecurity) and R156 (software updates).
+- **Competitive with OEM solutions**: Safeguard brings compliance + trust to Eclipse SDV OTA, making OSS viable for real-world fleets.
+- **OEM Differentiation**: Driver approval & state-awareness = marketable as a “safe update” feature.
+- **Future AI**: Tracker data becomes the foundation for predictive insights → fleet maintenance optimization, energy-aware updates.
 
 ## Demo scenario
 <img width="1085" height="1607" alt="image" src="https://github.com/user-attachments/assets/6b88da2e-f891-4c4a-af30-bebb4de331ef" />
