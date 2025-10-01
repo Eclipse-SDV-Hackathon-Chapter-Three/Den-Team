@@ -1,0 +1,89 @@
+@startuml
+title SafeGuard – OTA Update
+
+skinparam shadowing false
+skinparam sequence {
+  MessageAlign center
+}
+
+box "Cloud Control Plane" #LightBlue
+  actor "Symphony (Cloud)" as SymphonyCloud
+  participant "Data server" as DataSrv
+end box
+
+box "HPC ECU (Vehicle Control Plane & UI)" #LightYellow
+  participant "Symphony Agent" as Agent
+  participant "Ankaios" as Ankaios
+  participant "ECU Updater" as Updater
+  participant "Filesystem" as FS
+  participant "Vehicle monitor" as Monitor
+  actor "Driver consentrator" as DriverConsent
+end box
+
+box "Other ECUs" #LightGreen
+  participant "Motor ECU" as Motor
+end box
+
+note over SymphonyCloud,Agent
+Secure comms via Eclipse uProtocol (mTLS, attestation)
+Signed artifacts + hash verification
+end note
+
+== Kickoff ==
+SymphonyCloud -> Agent : Create OTA campaign (target: Motor ECU)
+Agent -> Ankaios : Request update execution
+Ankaios -> Updater : Launch ECU Updater
+Ankaios -> Monitor : Launch Vehicle Monitor
+Ankaios -> DriverConsent : Launch Driver Consentrator
+Ankaios --> Agent : Done
+SymphonyCloud -> SymphonyCloud : Campaign created (UN R155/R156)
+
+== Preconditions & Driver Consent ==
+Agent -> Updater: Provide metadata
+Updater -> DriverConsent : Prompt for approval
+DriverConsent -> Updater : Driver approves
+Monitor --> FS : Update vehicle history
+Updater -> FS : Check monitor history
+Updater -> Updater : Preconditions OK
+Updater -> SymphonyCloud : Report consent + readiness
+SymphonyCloud -> SymphonyCloud : Audit entry
+
+== Start Update ==
+Updater -> DataSrv : Download Motor ECU artifact
+Updater -> Motor : Transfer + install
+Updater -> Updater : Update step history
+Monitor --> FS : Update vehicle history
+Motor -> Updater : Failure report
+Updater -> Updater : Update step history
+Updater -> SymphonyCloud : Report failure
+SymphonyCloud -> SymphonyCloud : Failure event
+note over Updater,Motor
+Policy: Auto-rollback on failure
+end note
+
+== Rollback ==
+Updater -> Motor : Restore previous image
+Motor -> Updater : Rollback complete
+Updater -> Updater : Update step history
+Updater -> SymphonyCloud : Rollback success
+SymphonyCloud -> SymphonyCloud : Audit: rollback success
+
+== Retry & Complete ==
+Updater -> FS : Check monitor history
+Updater -> Updater : Preconditions OK
+Updater -> Motor : Transfer + install
+Motor -> Updater : Install success
+Updater -> Updater : Update step history
+Updater -> FS : Check monitor history
+Updater -> SymphonyCloud : Upload vehicle/step history
+SymphonyCloud -> SymphonyCloud : Compliance report (UN R155/R156)
+
+== AI analysis ==
+SymphonyCloud -> SymphonyCloud : Analyze statistic data
+
+legend right
+LightBlue : Cloud Control Plane
+LightYellow: Vehicle Control Plane (Updater handles consent + monitoring)
+LightGreen : Execution Plane (Motor ECU)
+Compliance : UN R155 (security) • UN R156 (traceability)
+end legend
