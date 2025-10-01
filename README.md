@@ -41,6 +41,10 @@ Business Value:
 * Cost Efficiency: Reduces downtime and costly rollbacks
 * Future Development: Historical update data helps OEMs design better features and predictive maintenance
 
+## Demo scenario
+<img width="1085" height="1607" alt="image" src="https://github.com/user-attachments/assets/6b88da2e-f891-4c4a-af30-bebb4de331ef" />
+
+
 # 2. How Do You Work
 ## Development Process
 * Agile, iterative sprints: prototype → OTA orchestration → testing in simulator.
