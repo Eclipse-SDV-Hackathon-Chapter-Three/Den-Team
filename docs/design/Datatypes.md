@@ -25,7 +25,8 @@
 3. RollingBack: RollingBack instalation and go back to idle state
 
 ### ErrorCode enum
-0. UpdateNotAllowed
-1. CommunicationLost
-2. Timeout
+0. Success
+1. UpdateNotAllowed
+2. CommunicationLost
 3. InvalidMetadata
+4. Timeout
