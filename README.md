@@ -5,9 +5,8 @@
 ## Team Members
 | Name             | GitHub Handle | Roles |
 |------------------|----------|---------------------------------------------|
-| Rihab Saidi      | RiSaidi  | Update functionality                |
+| Rihab Saidi /Ayane Makiuchi     | RiSaidi/ upi5  | Update functionality                |
 | Priyanka Mohanta | primohanta | System integration         | 
-| Ayane Makiuchi   | upi5         | UX / Dashboard Gamification|
 | Mandar kharde    |  mkhardedenso               | ECU level architecture|
 | satoshi kaneko   | satoshi58                   |  Symphony-Ankaios system communication|
 
