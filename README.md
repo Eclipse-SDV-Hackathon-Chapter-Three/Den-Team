@@ -5,11 +5,11 @@
 ## Team Members
 | Name             | GitHub Handle | Roles |
 |------------------|----------|---------------------------------------------|
-| Rihab Saidi      | RiSaidi  | Cloud Orchestration, Backend                |
-| Priyanka Mohanta | primohanta | In-Vehicle Orchestration, Testing         | 
+| Rihab Saidi      | RiSaidi  | Update functionality                |
+| Priyanka Mohanta | primohanta | System integration         | 
 | Ayane Makiuchi   | upi5         | UX / Dashboard Gamification|
-| Mandar kharde    |  mkhardedenso               | Networking & uProtocol Setup|
-| satoshi kaneko   | satoshi58                   |  HPC/ECU Integration|
+| Mandar kharde    |  mkhardedenso               | ECU level architecture|
+| satoshi kaneko   | satoshi58                   |  Symphony-Ankaios system communication|
 
 
 ## Challenge
@@ -21,14 +21,12 @@ Modern vehicles are rolling software platforms. The **Eclipse SDV stack** (Symph
 Current gaps:
 - Symphony + Ankaios can orchestrate OTA, but…
   - No **driver consent flow**.
-  - No **dependency enforcement** across ECUs.
   - No **vehicle state awareness** (safe update conditions).
   - No **traceable audit history** for regulations like **UN R155/R156**.
 **Safeguard** is our OSS enhancement that plugs into the Eclipse SDV stack and makes it **enterprise/OEM-ready.**
 With Safeguard, OTA isn’t just about pushing updates — it’s about ensuring **trust, compliance, and laying the foundation for tomorrow’s intelligence.**
 ### Key Features of Safeguard
 - **Driver Approval** – Consent workflow via dashboard/app → driver-in-the-loop for safety.
-- **Dependency Check** – Update order validated across ECUs (HPC → Battery → Motor ECU).
 - **Vehicle State Condition** – Only execute if vehicle is stationary, battery safe, critical ECUs idle.
 - **Update Tracker** – Lifetime history of OTA actions → regulatory compliance + OEM insights.
 - **AI-Ready Data** – Tracker produces structured logs → future AI for predictive updates & anomaly detection.
