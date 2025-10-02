@@ -1,7 +1,6 @@
-# 1. Your Team at a Glance
+# Den-Team
 
-## Team Name / Tagline
-Den-Team
+## Panic early debug later
 
 ## Team Members
 | Name             | GitHub Handle | Roles |
