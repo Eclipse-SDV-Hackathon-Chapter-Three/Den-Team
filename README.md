@@ -42,6 +42,8 @@ With Safeguard, OTA isn’t just about pushing updates — it’s about ensuring
 - **Future AI**: Tracker data becomes the foundation for predictive insights → fleet maintenance optimization, energy-aware updates.
 
 ## Demo scenario
+![alt text](<challenge-mission-update-possible-with_uprotocol_target_provider/assets/Brainstorming et idéation (5).png>)
+
 <img width="1085" height="1607" alt="image" src="https://github.com/user-attachments/assets/6b88da2e-f891-4c4a-af30-bebb4de331ef" />
 
 
@@ -64,3 +66,32 @@ With Safeguard, OTA isn’t just about pushing updates — it’s about ensuring
 ## Decision Making
 - Collaborative → quick discussions in team calls.
 - Final technical decisions made by consensus, prioritizing hackathon deadlines.
+
+# Project Structure
+- **TargetRpiFiles** 
+  - Contains scripts and resources for executing OTA updates on Raspberry Pi devices.  
+   - `TargetUpdateExecution.sh`: Shell script to automate update execution on target hardware.
+- **challenge-mission-update-possible-with_uprotocol_target_provider**
+  - Main project folder for the Eclipse SDV OTA challenge, featuring orchestration, provider samples, and integration resources.
+  - `.gitignore`, `LICENSE`, `README.md`: Project metadata and documentation.
+  - **assets/**: Images for documentation and presentations.
+  - **hpc_variant/**:  
+    HPC-focused orchestration samples, provider configs, and custom workloads for Ankaios and Symphony.
+    - `ankaios/`: State and custom workload definitions (e.g., update triggers).
+    - `samples/`: Example providers and test scripts for OTA flows.
+    - `uprotocol_provider/`: uProtocol integration samples and scripts.
+  - **symphony/**:  
+    Symphony orchestration resources, Docker setup, and provider libraries.
+    - `providers/`: Compiled provider libraries for Symphony integration.
+- **symphony-target-connection-rust** 
+  - Rust-based service for managing Symphony OTA target connections and Safeguard logic.
+  - Project metadata: `.gitignore`, `.dockerignore`, `LICENSE`, `NOTICE.md`, `CONTRIBUTING.md`, `README.md`
+  - Rust source code: `src/` (main logic and deployment state)
+  - Safeguard apps: `safeguard_apps/` (Python scripts for driver consent, monitoring, update simulation)
+  - Docker support: `Dockerfile`
+  - API schemas: `uservice/` (AsyncAPI spec and JSON schemas for OTA orchestration)
+  - Build artifacts: `target/`
+  - Configuration: `target.json`, `Cargo.toml`, `Cargo.lock`
+
+- **algorithm_docs**
+  - Algorithm and sequence diagram for safeguard apps.
